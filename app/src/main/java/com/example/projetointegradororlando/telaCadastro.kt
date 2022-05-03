@@ -19,7 +19,7 @@ class telaCadastro : Fragment() {
         binding = FragmentTelaCadastroBinding.inflate(inflater)
 
 
-        binding.buttonCadastro.setOnClickListener {
+        binding..setOnClickListener {
             if(binding.editSenhaCadastro != binding.editConfirmarSenhaCadastro){
 
                 AlertDialog.Builder(context)

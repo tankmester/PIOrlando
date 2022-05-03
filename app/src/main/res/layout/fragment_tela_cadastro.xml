@@ -4,141 +4,87 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout4"
+    android:background="@drawable/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".telaCadastro">
 
-    <EditText
-        android:id="@+id/editNome"
-        android:layout_width="0dp"
+
+    <TextView
+        android:id="@+id/title_cadastro"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:ems="10"
-        android:hint="Insira seu Nome Completo"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        android:text="@string/title_cadastro"
+        android:textSize="50sp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_marginTop="100dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <View
+        android:id="@+id/viewCadastro"
+        style="@style/ContainerComponents"
+        app:layout_constraintTop_toBottomOf="@id/title_cadastro"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
 
     <EditText
-        android:id="@+id/editEmailCadastro"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:ems="10"
-        android:hint="Insira seu E-mail"
+        android:id="@+id/edit_nome"
+        style="@style/Edit_Text"
+        app:layout_constraintTop_toTopOf="@+id/viewCadastro"
+        app:layout_constraintStart_toStartOf="@+id/viewCadastro"
+        app:layout_constraintEnd_toEndOf="@+id/viewCadastro"
+        android:hint="Nome"
+        />
+
+    <EditText
+        android:id="@+id/edit_email"
+        style="@style/Edit_Text"
+        app:layout_constraintTop_toBottomOf="@+id/edit_nome"
+        app:layout_constraintStart_toStartOf="@+id/viewCadastro"
+        app:layout_constraintEnd_toEndOf="@+id/viewCadastro"
+        android:hint="Email"
         android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editNome" />
+        android:drawableRight="@drawable/email"
+        />
 
     <EditText
-        android:id="@+id/editTelefone"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:ems="10"
-        android:hint="Insira seu Telefone"
-        android:inputType="phone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editEmailCadastro" />
-
-    <EditText
-        android:id="@+id/editAniversario"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:ems="10"
-        android:hint="Insira sua Data de Aniversário"
-        android:inputType="date"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTelefone" />
-
-    <EditText
-        android:id="@+id/editCPF"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:ems="10"
-        android:hint="Insira seu CPF"
-        android:inputType="numberSigned"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editAniversario" />
-
-    <EditText
-        android:id="@+id/editSenhaCadastro"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:ems="10"
-        android:hint="Insira sua Senha"
+        android:id="@+id/edit_senha"
+        style="@style/Edit_Text"
+        android:drawableRight="@drawable/eye"
+        android:hint="Senha"
         android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editCPF" />
+        app:layout_constraintEnd_toEndOf="@+id/viewCadastro"
+        app:layout_constraintStart_toStartOf="@+id/viewCadastro"
+        app:layout_constraintTop_toBottomOf="@+id/edit_email" />
 
-    <EditText
-        android:id="@+id/editConfirmarSenhaCadastro"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:ems="10"
-        android:hint="Confirme sua Senha"
-        android:inputType="textPassword"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_cadastro"
+        style="@style/button"
+        android:layout_marginTop="30dp"
+        android:text="Cadastrar"
+        android:textColorHighlight="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editSenhaCadastro" />
 
-    <Button
-        android:id="@+id/buttonCadastro"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:text="Confirmar Cadastro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editConfirmarSenhaCadastro" />
+        app:layout_constraintTop_toBottomOf="@id/viewCadastro" />
 
-    <Button
-        android:id="@+id/buttonTelaLogin"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
-        android:text="Voltar a Tela de Login"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_login"
+        style="@style/button"
+        android:text="Tela de Login"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@id/button_cadastro"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonCadastro" />
+        app:layout_constraintEnd_toEndOf="parent"
+
+        />
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
