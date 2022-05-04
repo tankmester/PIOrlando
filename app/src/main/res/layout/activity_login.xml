@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".telaLogin">
+    tools:context=".LoginActivity">
 
 
     <ImageView
@@ -16,13 +13,13 @@
         android:layout_width="350dp"
         android:layout_height="134dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="54dp"
+        android:layout_marginTop="52dp"
         android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/logo" />
-
+        app:srcCompat="@drawable/logo" />
 
     <View
         android:id="@+id/containerComponents"
@@ -35,23 +32,29 @@
     <EditText
         android:id="@+id/edit_email"
         style="@style/Edit_Text"
-        android:drawableRight="@drawable/email"
+        android:layout_marginTop="12dp"
+        android:drawableEnd="@drawable/email"
+        android:drawableTint="#000000"
         android:hint="Email"
         android:inputType="textEmailAddress"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
         app:layout_constraintEnd_toEndOf="@+id/containerComponents"
         app:layout_constraintStart_toStartOf="@+id/containerComponents"
-
         app:layout_constraintTop_toTopOf="@+id/containerComponents" />
 
     <EditText
         android:id="@+id/edit_senha"
         style="@style/Edit_Text"
-        android:drawableRight="@drawable/eye"
+        android:drawableEnd="@drawable/eye"
+        android:drawableTint="#000000"
         android:hint="Senha"
+
         android:inputType="textPassword"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
         app:layout_constraintEnd_toEndOf="@+id/containerComponents"
         app:layout_constraintStart_toStartOf="@+id/containerComponents"
-
         app:layout_constraintTop_toBottomOf="@+id/edit_email" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -81,8 +84,8 @@
         android:layout_marginTop="20dp"
         android:text="@string/text_cadastro"
         android:textColor="@color/white"
-        android:textStyle="bold"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressbar" />
@@ -99,5 +102,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_tela_cadastro" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

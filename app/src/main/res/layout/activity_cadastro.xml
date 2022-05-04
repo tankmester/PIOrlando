@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout4"
-    android:background="@drawable/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".telaCadastro">
+    android:background="@drawable/background"
+    tools:context=".CadastroActivity">
 
 
     <TextView
@@ -34,29 +32,36 @@
     <EditText
         android:id="@+id/edit_nome"
         style="@style/Edit_Text"
-        app:layout_constraintTop_toTopOf="@+id/viewCadastro"
-        app:layout_constraintStart_toStartOf="@+id/viewCadastro"
-        app:layout_constraintEnd_toEndOf="@+id/viewCadastro"
+        android:drawableTint="#000000"
         android:hint="Nome"
-        />
+        android:textColor="#000000"
+        android:textColorHint="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/viewCadastro"
+        app:layout_constraintStart_toStartOf="@+id/viewCadastro"
+        app:layout_constraintTop_toTopOf="@+id/viewCadastro" />
 
     <EditText
         android:id="@+id/edit_email"
         style="@style/Edit_Text"
-        app:layout_constraintTop_toBottomOf="@+id/edit_nome"
-        app:layout_constraintStart_toStartOf="@+id/viewCadastro"
-        app:layout_constraintEnd_toEndOf="@+id/viewCadastro"
+        android:drawableEnd="@drawable/email"
+        android:drawableTint="#000000"
         android:hint="Email"
         android:inputType="textEmailAddress"
-        android:drawableRight="@drawable/email"
-        />
+        android:textColor="#000000"
+        android:textColorHint="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/viewCadastro"
+        app:layout_constraintStart_toStartOf="@+id/viewCadastro"
+        app:layout_constraintTop_toBottomOf="@+id/edit_nome" />
 
     <EditText
         android:id="@+id/edit_senha"
         style="@style/Edit_Text"
-        android:drawableRight="@drawable/eye"
+        android:drawableEnd="@drawable/eye"
+        android:drawableTint="#000000"
         android:hint="Senha"
         android:inputType="textPassword"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
         app:layout_constraintEnd_toEndOf="@+id/viewCadastro"
         app:layout_constraintStart_toStartOf="@+id/viewCadastro"
         app:layout_constraintTop_toBottomOf="@+id/edit_email" />
@@ -82,9 +87,5 @@
         app:layout_constraintEnd_toEndOf="parent"
 
         />
-
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
