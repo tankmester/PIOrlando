@@ -20,10 +20,9 @@ class telaLogin : Fragment() {
         binding = FragmentTelaLoginBinding.inflate(inflater)
 
         binding.textTelaCadastro.setOnClickListener{
-            val i = Intent(this, FragmentTelaLoginBinding::class.java)
+            val i = Intent(context, FragmentTelaLoginBinding::class.java)
             startActivity(i)
         }
-
 
 
         return binding.root

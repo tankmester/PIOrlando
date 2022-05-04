@@ -19,21 +19,18 @@ class telaCadastro : Fragment() {
         binding = FragmentTelaCadastroBinding.inflate(inflater)
 
 
-        binding..setOnClickListener {
-            if(binding.editSenhaCadastro != binding.editConfirmarSenhaCadastro){
+        binding.buttonCadastro.setOnClickListener {
+            if(binding.editSenha == null){
 
                 AlertDialog.Builder(context)
-                    .setTitle("Senhas não são iguais")
+                    .setTitle("Senhas vazia")
                     .setMessage("Você não pode efetuar o cadastro :(" +
                             "" +
-                            "Confirme novamente sua senha")
+                            "Coloque sua senha")
                     .create()
                     .show()
 
-                val i = Intent(this, MainActivity::class.java)
-                i.putExtra("nome", binding.editNome)
-                i.putExtra("email", binding.editEmailCadastro)
-                startActivity(i)
+
             }
 
 
@@ -44,7 +41,9 @@ class telaCadastro : Fragment() {
                 .create()
                 .show()
 
-            val i = Intent(this, MainActivity::class.java)
+            val i = Intent(context, MainActivity::class.java)
+            i.putExtra("nome", binding.editNome.text.toString())
+            i.putExtra("email", binding.editEmail.text.toString())
             startActivity(i)
 
         }
