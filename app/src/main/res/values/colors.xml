@@ -10,8 +10,8 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="bottom_nav_background">#FEDBD0</color>
-    <color name="bottom_nav_item">#8C706D</color>
-    <color name="bottom_nav_selected_item">#220006</color>
+    <color name="bottom_nav_item">#9F9F9F</color>
+    <color name="bottom_nav_selected_item">#1E81AD</color>
     <color name="fragment_bg_color">#FDF8F4</color>
 
     <color name="orange">#FFB344</color>
