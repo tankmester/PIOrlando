@@ -16,10 +16,6 @@ class perfil : Fragment() {
         binding = FragmentPerfilBinding.inflate(inflater)
 
 
-        binding.imageView2.setOnClickListener{
-
-        }
-
 
         return binding.root
     }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.projetointegradororlando.homeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/adicionarProdutos"
+        android:name="com.example.projetointegradororlando.adicionarProdutos"
+        android:label="fragment_adicionar_produtos"
+        tools:layout="@layout/fragment_adicionar_produtos" />
+    <fragment
+        android:id="@+id/perfil"
+        android:name="com.example.projetointegradororlando.perfil"
+        android:label="fragment_perfil"
+        tools:layout="@layout/fragment_perfil" />
+</navigation>
