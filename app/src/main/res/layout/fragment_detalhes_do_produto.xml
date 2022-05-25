@@ -8,7 +8,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/background">
 
         <ImageView
             android:id="@+id/imageView2"
@@ -30,6 +31,7 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
             android:text="Titulo do Produto"
+            android:textColor="#000000"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -44,6 +46,7 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
             android:text="Categoria"
+            android:textColor="#000000"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -57,6 +60,7 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
             android:text="Descrição"
+            android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -68,16 +72,20 @@
             android:layout_marginStart="32dp"
             android:layout_marginBottom="72dp"
             android:text="Preço"
+            android:textColor="#000000"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextDate"
+            app:layout_constraintVertical_bias="1.0" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="64dp"
+            android:background="@drawable/button"
             android:text="Alugar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -92,6 +100,7 @@
             android:layout_marginTop="32dp"
             android:ems="10"
             android:inputType="date"
+            android:textColor="#000000"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
@@ -103,6 +112,7 @@
             android:layout_marginEnd="32dp"
             android:ems="10"
             android:inputType="date"
+            android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
@@ -111,6 +121,7 @@
             android:layout_width="120dp"
             android:layout_height="18dp"
             android:text="Data Inicial:"
+            android:textColor="#000000"
             tools:layout_editor_absoluteX="32dp"
             tools:layout_editor_absoluteY="526dp" />
 
@@ -119,6 +130,7 @@
             android:layout_width="120dp"
             android:layout_height="18dp"
             android:text="Data Final:"
+            android:textColor="#000000"
             tools:layout_editor_absoluteX="214dp"
             tools:layout_editor_absoluteY="526dp" />
 

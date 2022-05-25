@@ -14,7 +14,6 @@
     <color name="bottom_nav_selected_item">#1E81AD</color>
     <color name="fragment_bg_color">#FDF8F4</color>
 
-    <color name="orange">#FFB344</color>
-    <color name="pink">#FB528B</color>
-    <color name="pink_light">#F899B9</color>
+    <color name="blue">#00BCD4</color>
+
 </resources>
