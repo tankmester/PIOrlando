@@ -56,6 +56,7 @@
     <EditText
         android:id="@+id/edit_senha"
         style="@style/Edit_Text"
+        android:layout_marginTop="12dp"
         android:drawableEnd="@drawable/eye"
         android:drawableTint="#000000"
         android:hint="Senha"
@@ -63,6 +64,7 @@
         android:textColor="#000000"
         android:textColorHint="#000000"
         app:layout_constraintEnd_toEndOf="@+id/viewCadastro"
+        app:layout_constraintHorizontal_bias="0.825"
         app:layout_constraintStart_toStartOf="@+id/viewCadastro"
         app:layout_constraintTop_toBottomOf="@+id/edit_email" />
 
