@@ -16,6 +16,8 @@ class AdicionarNovosProdutos : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+
         return inflater.inflate(R.layout.fragment_adicionar_novos_produtos, container, false)
     }
 }
