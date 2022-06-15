@@ -46,30 +46,17 @@
         tools:srcCompat="@drawable/perfil" />
 
     <TextView
-        android:id="@+id/textNomeUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="36dp"
-        android:text="Ana Clara"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/iconeUser"
-        app:layout_constraintTop_toTopOf="@+id/containerPerfil" />
-
-    <TextView
-        android:id="@+id/textEmailUser"
+        android:id="@+id/textEmailUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="48dp"
-        android:text="a.clarasilva@gmail.com"
+        android:text=""
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@id/iconeEmail"
-        app:layout_constraintTop_toBottomOf="@id/textNomeUser" />
+        app:layout_constraintTop_toBottomOf="@+id/textNomeUsuario" />
 
     <ImageView
         android:id="@+id/iconeEmail"
@@ -84,12 +71,13 @@
         app:srcCompat="@drawable/email"
         tools:srcCompat="@drawable/email" />
 
+
     <ImageView
         android:id="@+id/iconeUser"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="88dp"
         android:src="@drawable/perfil"
         android:tint="#000000"
         app:layout_constraintStart_toStartOf="@+id/containerPerfil"
@@ -97,100 +85,32 @@
         app:srcCompat="@drawable/perfil"
         tools:srcCompat="@drawable/perfil" />
 
-
-    <ImageView
-        android:id="@+id/iconeCPF"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="24dp"
-        android:src="@drawable/cpf"
-        android:tint="#000000"
-        app:layout_constraintStart_toStartOf="@+id/containerPerfil"
-        app:layout_constraintTop_toBottomOf="@+id/iconeEmail"
-        app:srcCompat="@drawable/cpf"
-        tools:srcCompat="@drawable/cpf" />
-
-    <ImageView
-        android:id="@+id/iconeData"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="24dp"
-        android:src="@drawable/data"
-        android:tint="#000000"
-        app:layout_constraintStart_toStartOf="@+id/containerPerfil"
-        app:layout_constraintTop_toBottomOf="@+id/iconeCPF"
-        app:srcCompat="@drawable/data"
-        tools:srcCompat="@drawable/data" />
-
     <TextView
-        android:id="@+id/textCPFUser"
+        android:id="@+id/textNomeUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="48dp"
-        android:text="148.987.780-00"
+        android:layout_marginTop="100dp"
+        android:text=""
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/iconeCPF"
-        app:layout_constraintTop_toBottomOf="@id/textEmailUser" />
+        app:layout_constraintStart_toEndOf="@+id/iconeUser"
+        app:layout_constraintTop_toTopOf="@+id/containerPerfil" />
 
-    <TextView
-        android:id="@+id/textDataUser"
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/bt_deslogar"
+        style="@style/button"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="48dp"
-        android:text="12/07/1998"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/iconeData"
-        app:layout_constraintTop_toBottomOf="@id/textCPFUser" />
+        android:layout_marginTop="32dp"
+        android:text="Deslogar"
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="Alterar Senha"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:textColorHighlight="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/containerPerfil" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Histórico de Transações"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Meus Produtos"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import com.example.projetointegradororlando.databinding.ActivityCadastroBinding
 
+/*
 class CadastroActivity : AppCompatActivity() {
     lateinit var binding: ActivityCadastroBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,3 +37,5 @@ class CadastroActivity : AppCompatActivity() {
 
     }
 }
+
+ */

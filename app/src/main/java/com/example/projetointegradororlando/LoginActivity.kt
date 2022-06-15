@@ -9,7 +9,7 @@ import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
-
+/*
 class LoginActivity : AppCompatActivity() {
     lateinit var binding: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,11 +26,6 @@ class LoginActivity : AppCompatActivity() {
         }
         else {
             AdicionarNovosProdutos().setupFirebase()
-        }
-
-        binding.textTelaCadastro.setOnClickListener{
-            val i = Intent(this, CadastroActivity::class.java)
-            startActivity(i)
         }
     }
 
@@ -50,3 +45,5 @@ class LoginActivity : AppCompatActivity() {
     }
 
 }
+
+ */
