@@ -43,7 +43,7 @@ class AdicionarNovosProdutos : Fragment() {
     }
 
     fun setupFirebase(){
-        val usuario = LoginActivity().getCurrentUser()
+        val usuario = MainActivity().getCurrentUser()
 
         if (usuario != null){
             database = FirebaseDatabase.getInstance().reference.child(usuario.uid)
