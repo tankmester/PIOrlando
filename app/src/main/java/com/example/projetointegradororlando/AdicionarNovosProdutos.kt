@@ -5,19 +5,49 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.projetointegradororlando.databinding.FragmentAdicionarNovosProdutosBinding
+import com.example.projetointegradororlando.databinding.FragmentAdicionarProdutosBinding
+import com.example.projetointegradororlando.modelos.Produto
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class AdicionarNovosProdutos : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    lateinit var binding: FragmentAdicionarNovosProdutosBinding
+
+    lateinit var database: DatabaseReference
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        binding = FragmentAdicionarNovosProdutosBinding.inflate(inflater)
 
 
-        return inflater.inflate(R.layout.fragment_adicionar_novos_produtos, container, false)
+        binding.buttonAdicionar.setOnClickListener {
+            adicionarNovoProduto()
+        }
+
+        return binding.root
     }
+
+    fun adicionarNovoProduto(){
+        val produto = Produto(
+            imagem = binding.editTextUrlImagem.toString(),
+            titulo = binding.editTextTitulo.toString(),
+            descricao = binding.editTextTextMultiLineDescricao.toString(),
+            preco = binding.editTextNumberDecimalPreco.toString().toDouble())
+        val newNode = database.child("produtos").push()
+        produto.id = newNode.key
+        newNode.setValue(produto)
+    }
+
+    fun setupFirebase(){
+        val usuario = LoginActivity().getCurrentUser()
+
+        if (usuario != null){
+            database = FirebaseDatabase.getInstance().reference.child(usuario.uid)
+        }
+    }
+
 }

@@ -24,6 +24,9 @@ class LoginActivity : AppCompatActivity() {
                 AuthUI.getInstance().createSignInIntentBuilder().setAvailableProviders(providers).build(), 0
             )
         }
+        else {
+            AdicionarNovosProdutos().setupFirebase()
+        }
 
         binding.textTelaCadastro.setOnClickListener{
             val i = Intent(this, CadastroActivity::class.java)
@@ -31,15 +34,16 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun getCurrentUser(): FirebaseUser? {
+    fun getCurrentUser(): FirebaseUser? {
         return FirebaseAuth.getInstance().currentUser
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if(requestCode == 0 && resultCode == RESULT_OK){
+        if(requestCode == 0 && resultCode == RESULT_OK){1
             Toast.makeText(this, "Login Efetuado com Sucesso", Toast.LENGTH_LONG).show()
+            AdicionarNovosProdutos().setupFirebase()
         }else{
             finishAffinity()
         }

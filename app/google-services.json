@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "1024028609876",
-    "project_id": "projetointegradororlando",
-    "storage_bucket": "projetointegradororlando.appspot.com"
+    "project_number": "491931426271",
+    "project_id": "piorlando",
+    "storage_bucket": "piorlando.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1024028609876:android:f4c95c93f3514719c80cc1",
+        "mobilesdk_app_id": "1:491931426271:android:2176d4a56e8e52fd42386a",
         "android_client_info": {
           "package_name": "com.example.projetointegradororlando"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1024028609876-572g3799iqskeqrfr2sbcsek8rfkon9j.apps.googleusercontent.com",
+          "client_id": "491931426271-d6tnpak64cf6692boo9bhbjtqoime739.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBlnAUFoodGoSit1VVbgOKlB_w5X8i4P24"
+          "current_key": "AIzaSyCaD4_Q59iHB5VpcZ-vgDOZ21oeOPhFDCs"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1024028609876-572g3799iqskeqrfr2sbcsek8rfkon9j.apps.googleusercontent.com",
+              "client_id": "491931426271-d6tnpak64cf6692boo9bhbjtqoime739.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
