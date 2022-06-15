@@ -17,10 +17,11 @@ class perfil : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentPerfilBinding.inflate(inflater)
 
-        return binding.root
-
         binding.btDeslogar.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
         }
+
+        return binding.root
+
     }
 }

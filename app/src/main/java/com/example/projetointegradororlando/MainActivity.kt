@@ -3,18 +3,25 @@ package com.example.projetointegradororlando
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI.setupWithNavController
 import com.example.projetointegradororlando.databinding.ActivityMainBinding
+import com.example.projetointegradororlando.databinding.ProdutoBinding
+import com.example.projetointegradororlando.modelos.Produto
 import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.*
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
+
+    lateinit var database: DatabaseReference
+
     private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,12 +38,17 @@ class MainActivity : AppCompatActivity() {
             val providers = arrayListOf(AuthUI.IdpConfig.EmailBuilder().build())
 
             startActivityForResult(
-                AuthUI.getInstance().createSignInIntentBuilder().setAvailableProviders(providers).build(), 1
+                AuthUI.getInstance()
+                    .createSignInIntentBuilder()
+                    .setIsSmartLockEnabled(false)
+                    .setAvailableProviders(providers)
+                    .build(), 1
             )
         }
         else {
-            AdicionarNovosProdutos().setupFirebase()
+            setupFirebase()
         }
+
     }
 
     fun getCurrentUser(): FirebaseUser? {
@@ -48,12 +60,20 @@ class MainActivity : AppCompatActivity() {
 
         if(requestCode == 1 && resultCode == RESULT_OK){
             Toast.makeText(this, "Login Efetuado com Sucesso", Toast.LENGTH_LONG).show()
-            AdicionarNovosProdutos().setupFirebase()
+            setupFirebase()
         }else{
             finishAffinity()
         }
-
-
-
     }
+
+    fun setupFirebase(){
+        val usuario = getCurrentUser()
+
+        if (usuario != null){
+            database = FirebaseDatabase.getInstance().reference.child(usuario.uid)
+        }
+    }
+
+
+
 }

@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "491931426271",
+    "firebase_url": "https://piorlando-default-rtdb.firebaseio.com",
     "project_id": "piorlando",
     "storage_bucket": "piorlando.appspot.com"
   },
