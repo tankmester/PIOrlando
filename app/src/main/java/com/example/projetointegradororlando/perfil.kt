@@ -2,6 +2,7 @@ package com.example.projetointegradororlando
 
 
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -22,13 +23,13 @@ class perfil : Fragment() {
         binding.btDeslogar.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
 
-            alert("DESLOGANDO", "Você deseja sair do app?")
+            alert("DESLOGANDO", "Você não está mais logado\nDeseja sair do app?")
 
         }
 
 
         binding.btSair.setOnClickListener{
-            System.exit(0)
+            exitProcess(0)
         }
 
 
@@ -47,10 +48,13 @@ class perfil : Fragment() {
             .setTitle(title)
             .setMessage(message)
             .setCancelable(false)
-            .setPositiveButton("Deslogar") {dialog, button ->
+            .setPositiveButton("Sair") {dialog, button ->
                 finishAffinity()
             }
-            .setNegativeButton("Ficar", null)
+            .setNegativeButton("Ficar") { dialog, button ->
+                val i = Intent(context, MainActivity::class.java)
+                startActivity(i)
+            }
             .create().show()
     }
 
