@@ -85,9 +85,7 @@ class homeFragment : Fragment() {
 
                     snapshot.child("produtos").children.forEach{
                         val map = it.value as HashMap<String, Any>
-
                         val id = it.key
-
                         val imagem = map["imagem"] as String
                         val titulo = map["titulo"] as String
                         val descricao = map["descricao"] as String
