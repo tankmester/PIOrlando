@@ -37,22 +37,6 @@ class perfil : Fragment() {
             exitProcess(0)
         }
 
-        binding.btLogin.setOnClickListener(){
-            if(getCurrentUser() == null){
-                val providers = arrayListOf(AuthUI.IdpConfig.EmailBuilder().build(), AuthUI.IdpConfig.GoogleBuilder().build())
-
-                startActivityForResult(
-                    AuthUI.getInstance()
-                        .createSignInIntentBuilder()
-                        .setIsSmartLockEnabled(false)
-                        .setAvailableProviders(providers)
-                        .build(), 1
-                )
-            }
-            else {
-                setupFirebase()
-            }
-        }
 
         binding.textEmailUsuario.text = FirebaseAuth.getInstance().currentUser?.email.toString()
         binding.textNomeUsuario.text = FirebaseAuth.getInstance().currentUser?.displayName.toString()
@@ -83,17 +67,7 @@ class perfil : Fragment() {
         exitProcess(0)
     }
 
-    fun getCurrentUser(): FirebaseUser? {
-        return FirebaseAuth.getInstance().currentUser
-    }
 
-    fun setupFirebase(){
-        val usuario = getCurrentUser()
-
-        if (usuario != null){
-            database = FirebaseDatabase.getInstance().reference.child(usuario.uid)
-        }
-    }
 
 
 }

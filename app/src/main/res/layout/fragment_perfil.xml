@@ -110,7 +110,7 @@
         style="@style/button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="44dp"
 
         android:text="Deslogar"
         android:textColorHighlight="#FFFFFF"
@@ -120,31 +120,14 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bt_sair"
+        style="@style/button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/button"
-        android:text="Sair"
-        android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bt_login" />
+        android:layout_marginTop="32dp"
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/bt_login"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/button"
-        android:text="Login"
-        android:textColor="#FFFFFF"
+        android:text="Sair"
+        android:textColorHighlight="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bt_deslogar" />
 
