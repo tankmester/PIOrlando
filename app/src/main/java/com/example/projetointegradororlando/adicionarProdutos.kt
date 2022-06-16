@@ -33,24 +33,6 @@ class adicionarProdutos : Fragment() {
                 parentFragmentManager.beginTransaction().replace(it.id, AdicionarNovosProdutos()).commit()
             }
         }
-
-
-        if(getCurrentUser() == null){
-            val providers = arrayListOf(AuthUI.IdpConfig.EmailBuilder().build())
-
-            startActivityForResult(
-                AuthUI.getInstance()
-                    .createSignInIntentBuilder()
-                    .setIsSmartLockEnabled(false)
-                    .setAvailableProviders(providers)
-                    .build(), 1
-            )
-        }
-        else {
-            setupFirebase()
-        }
-
-
         return binding.root
 
     }

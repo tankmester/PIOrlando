@@ -20,6 +20,9 @@ class perfil : Fragment() {
         binding.btDeslogar.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
         }
+        binding.btSair.setOnClickListener{
+            System.exit(0)
+        }
 
         return binding.root
 

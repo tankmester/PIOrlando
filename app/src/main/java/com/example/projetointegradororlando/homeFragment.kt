@@ -28,20 +28,6 @@ class homeFragment : Fragment() {
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater)
 
-        if(getCurrentUser() == null){
-            val providers = arrayListOf(AuthUI.IdpConfig.EmailBuilder().build())
-
-            startActivityForResult(
-                AuthUI.getInstance()
-                    .createSignInIntentBuilder()
-                    .setIsSmartLockEnabled(false)
-                    .setAvailableProviders(providers)
-                    .build(), 1
-            )
-        }
-        else {
-            setupFirebase()
-        }
         return binding.root
 
     }
