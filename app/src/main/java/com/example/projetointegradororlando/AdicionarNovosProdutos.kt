@@ -12,8 +12,7 @@ import com.example.projetointegradororlando.modelos.Produto
 import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 
 class AdicionarNovosProdutos : Fragment() {
 
@@ -31,24 +30,26 @@ class AdicionarNovosProdutos : Fragment() {
 
         binding.buttonAdicionar.setOnClickListener {
             adicionarNovoProduto()
+            val i = Intent(context, MainActivity::class.java)
+            startActivity(i)
         }
 
         return binding.root
     }
-
     fun adicionarNovoProduto(){
+        val usuario = getCurrentUser()
         val produto = Produto(
             imagem = binding.editTextUrlImagem.text.toString(),
             titulo = binding.editTextTitulo.text.toString(),
             descricao = binding.editTextTextMultiLineDescricao.text.toString(),
             preco = binding.editTextNumberDecimalPreco.text.toString())
-        val newNode = database.child("produtos").push()
-        val newNodeGeral = FirebaseDatabase.getInstance().reference.child("TodosProdutos").push()
-        produto.id = newNode.key
-        newNode.setValue(produto)
-        newNodeGeral.setValue(produto)
-        val i = Intent(context, MainActivity::class.java)
-        startActivity(i)
+        //val newNode = database.child("Produtos").push()
+        //val newNodeGeral = FirebaseDatabase.getInstance().reference.child("TodosProdutos").push()
+        //produto.id = newNode.key
+        val newNode = usuario?.let { database.child("usuarios").child(it.uid).child("produtos").push() }
+        newNode?.key.let { produto.id = it }
+        newNode?.setValue(produto)
+        //newNodeGeral.setValue(produto)
     }
 
     fun getCurrentUser(): FirebaseUser? {
@@ -59,9 +60,19 @@ class AdicionarNovosProdutos : Fragment() {
         val usuario = getCurrentUser()
 
         if (usuario != null){
-            database = FirebaseDatabase.getInstance().reference.child(usuario.uid)
+            database = FirebaseDatabase.getInstance().reference//.child(usuario.uid)
+            val dataBaseListener = object : ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    dataProcessing(snapshot)
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+            }
+            database.child("produtos").addValueEventListener(dataBaseListener)
         }
-        else{
+       /* else{
             val providers = arrayListOf(AuthUI.IdpConfig.EmailBuilder().build(), AuthUI.IdpConfig.GoogleBuilder().build())
 
             startActivityForResult(
@@ -71,7 +82,16 @@ class AdicionarNovosProdutos : Fragment() {
                     .setAvailableProviders(providers)
                     .build(), 1
             )
+        }*/
+    }
+    fun dataProcessing(snapshot: DataSnapshot) {
+        val produtos = arrayListOf<Produto>()
+
+        snapshot.children.forEach{
+            val produto = it.getValue(Produto::class.java)
+            produto?.let {
+                 produtos.add(produto)
+            }
         }
     }
-
 }

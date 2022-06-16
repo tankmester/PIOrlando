@@ -33,7 +33,7 @@ class adicionarProdutos : Fragment() {
                 parentFragmentManager.beginTransaction().replace(it.id, AdicionarNovosProdutos()).commit()
             }
         }
-
+        setupFirebase()
         return binding.root
 
     }
@@ -61,36 +61,29 @@ class adicionarProdutos : Fragment() {
         val usuario = getCurrentUser()
 
         if (usuario != null){
-            database = FirebaseDatabase.getInstance().reference.child(usuario.uid)
+            database = FirebaseDatabase.getInstance().reference//.child(usuario.uid)
 
-            val valueEventListener = object : ValueEventListener {
+            val dataBaseListener = object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-
-                    val list = arrayListOf<Produto>()
-
-                    snapshot.child("produtos").children.forEach{
-                        val map = it.value as HashMap<String, Any>
-
-                        val id = it.key
-
-                        val imagem = map["imagem"] as String
-                        val titulo = map["titulo"] as String
-                        val descricao = map["descricao"] as String
-                        val preco = map["preco"] as String
-
-                        val prod = Produto(id, titulo,descricao, preco, imagem)
-                        list.add(prod)
-                    }
-
-                    refreshUi(list)
+                    dataProcessing(snapshot)
                 }
-
                 override fun onCancelled(error: DatabaseError) {
                     Log.e("adicionarProdutos", "setupFirebase", error.toException())
                 }
             }
-            database.addValueEventListener(valueEventListener)
+            database.child("usuarios").child(usuario.uid).child("produtos").addValueEventListener(dataBaseListener)
         }
+    }
+    fun dataProcessing(snapshot: DataSnapshot) {
+        val produtos = arrayListOf<Produto>()
+
+        snapshot.children.forEach{
+            val produto = it.getValue(Produto::class.java)
+            produto?.let {
+                produtos.add(produto)
+            }
+        }
+        refreshUi(produtos)
     }
 
 }

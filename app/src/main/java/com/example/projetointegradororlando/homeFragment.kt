@@ -51,7 +51,10 @@ class homeFragment : Fragment() {
     private fun getCurrentUser(): FirebaseUser? {
         return FirebaseAuth.getInstance().currentUser
     }
+    fun setupFirebase(){
 
+    }
+/*
     private fun setupFirebase(){
         val usuario = getCurrentUser()
 
@@ -85,6 +88,17 @@ class homeFragment : Fragment() {
             }
             database.addValueEventListener(valueEventListener)
         }
+    }*/
+    fun dataProcessing(snapshot: DataSnapshot) {
+        val produtos = arrayListOf<Produto>()
+
+        snapshot.children.forEach{
+            val produto = it.getValue(Produto::class.java)
+            produto?.let {
+                produtos.add(produto)
+            }
+        }
+        refreshUi(produtos)
     }
 
 }
