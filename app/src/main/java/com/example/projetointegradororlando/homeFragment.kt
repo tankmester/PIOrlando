@@ -54,11 +54,11 @@ class homeFragment : Fragment() {
 
     }
 
-    fun getCurrentUser(): FirebaseUser? {
+    private fun getCurrentUser(): FirebaseUser? {
         return FirebaseAuth.getInstance().currentUser
     }
 
-    fun setupFirebase(){
+    private fun setupFirebase(){
         val usuario = getCurrentUser()
 
         if (usuario != null){
@@ -70,7 +70,7 @@ class homeFragment : Fragment() {
                     val list = arrayListOf<Produto>()
 
                     snapshot.child("produtos").children.forEach{
-                        val map = it.value as HashMap<String, Any>
+                        val map = it.value as HashMap<*, *>
                         val id = it.key
                         val imagem = map["imagem"] as String
                         val titulo = map["titulo"] as String

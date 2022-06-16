@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Starck/AndroidStudioProjects/PIOrlando/app/src/main/res/layout/activity_main.xml" value="0.35648148148148145" />
+        <entry key="..\:/Users/Starck/AndroidStudioProjects/PIOrlando/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Starck/AndroidStudioProjects/PIOrlando/app/src/main/res/layout/fragment_perfil.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Starck/AndroidStudioProjects/PIOrlando/app/src/main/res/layout/produto.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Starck/AndroidStudioProjects/Projeto/app/src/main/res/drawable/background.xml" value="0.18" />
         <entry key="..\:/Users/Starck/AndroidStudioProjects/Projeto/app/src/main/res/drawable/backgroundbutton.xml" value="0.145" />
         <entry key="..\:/Users/Starck/AndroidStudioProjects/Projeto/app/src/main/res/drawable/bottom_nav_colors.xml" value="0.1" />
@@ -45,7 +49,6 @@
         <entry key="..\:/Users/tankm/AndroidStudioProjects/PIOrlando3/app/src/main/res/layout/activity_cadastro.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/tankm/AndroidStudioProjects/PIOrlando3/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/tankm/AndroidStudioProjects/PIOrlando3/app/src/main/res/layout/fragment_perfil.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/tankm/AndroidStudioProjects/PIOrlando6/app/src/main/res/layout/fragment_perfil.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/tankm/AndroidStudioProjects/projetoIntegradorOrlando/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/tankm/AndroidStudioProjects/projetoIntegradorOrlando/app/src/main/res/layout/fragment_card_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/tankm/AndroidStudioProjects/projetoIntegradorOrlando/app/src/main/res/layout/fragment_lista_menu.xml" value="0.36666666666666664" />
