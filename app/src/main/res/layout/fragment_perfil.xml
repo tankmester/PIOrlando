@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:fillViewport="true">
 
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/frameLayout2"
     android:background="@drawable/background"
     android:layout_width="match_parent"
@@ -30,8 +30,8 @@
     <View
         android:id="@+id/containerPerfil"
 
-        android:layout_width="377dp"
-        android:layout_height="319dp"
+        android:layout_width="380dp"
+        android:layout_height="243dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/container_user"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,12 +52,26 @@
         app:srcCompat="@drawable/perfil"
         tools:srcCompat="@drawable/perfil" />
 
+
+    <ImageView
+        android:id="@+id/iconeUser"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="48dp"
+        android:src="@drawable/perfil"
+        android:tint="#000000"
+        app:layout_constraintStart_toStartOf="@+id/containerPerfil"
+        app:layout_constraintTop_toTopOf="@+id/containerPerfil"
+        app:srcCompat="@drawable/perfil"
+        tools:srcCompat="@drawable/perfil" />
+
     <TextView
         android:id="@+id/textEmailUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="40dp"
         android:text=""
         android:textColor="@color/black"
         android:textSize="20sp"
@@ -70,7 +84,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:src="@drawable/email"
         android:tint="#000000"
         app:layout_constraintStart_toStartOf="@+id/containerPerfil"
@@ -78,26 +92,12 @@
         app:srcCompat="@drawable/email"
         tools:srcCompat="@drawable/email" />
 
-
-    <ImageView
-        android:id="@+id/iconeUser"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="88dp"
-        android:src="@drawable/perfil"
-        android:tint="#000000"
-        app:layout_constraintStart_toStartOf="@+id/containerPerfil"
-        app:layout_constraintTop_toTopOf="@+id/containerPerfil"
-        app:srcCompat="@drawable/perfil"
-        tools:srcCompat="@drawable/perfil" />
-
     <TextView
         android:id="@+id/textNomeUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="60dp"
         android:text=""
         android:textColor="@color/black"
         android:textSize="20sp"
@@ -111,11 +111,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Deslogar"
 
+        android:text="Deslogar"
         android:textColorHighlight="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/containerPerfil" />
 
@@ -124,13 +123,28 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/button"
         android:text="Sair"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_login" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/bt_login"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/button"
+        android:text="Login"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bt_deslogar" />
 
