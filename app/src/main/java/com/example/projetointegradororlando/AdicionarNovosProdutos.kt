@@ -27,23 +27,10 @@ class AdicionarNovosProdutos : Fragment() {
     ): View? {
         binding = FragmentAdicionarNovosProdutosBinding.inflate(inflater)
 
+        setupFirebase()
+
         binding.buttonAdicionar.setOnClickListener {
             adicionarNovoProduto()
-        }
-
-        if(getCurrentUser() == null){
-            val providers = arrayListOf(AuthUI.IdpConfig.EmailBuilder().build())
-
-            startActivityForResult(
-                AuthUI.getInstance()
-                    .createSignInIntentBuilder()
-                    .setIsSmartLockEnabled(false)
-                    .setAvailableProviders(providers)
-                    .build(), 1
-            )
-        }
-        else {
-            setupFirebase()
         }
 
         return binding.root
@@ -56,10 +43,12 @@ class AdicionarNovosProdutos : Fragment() {
             descricao = binding.editTextTextMultiLineDescricao.text.toString(),
             preco = binding.editTextNumberDecimalPreco.text.toString())
         val newNode = database.child("produtos").push()
+        val newNodeGeral = FirebaseDatabase.getInstance().reference.child("TodosProdutos").push()
         produto.id = newNode.key
         newNode.setValue(produto)
-        binding.containerNovoProduto.removeAllViews()
-
+        newNodeGeral.setValue(produto)
+        val i = Intent(context, MainActivity::class.java)
+        startActivity(i)
     }
 
     fun getCurrentUser(): FirebaseUser? {
@@ -71,6 +60,17 @@ class AdicionarNovosProdutos : Fragment() {
 
         if (usuario != null){
             database = FirebaseDatabase.getInstance().reference.child(usuario.uid)
+        }
+        else{
+            val providers = arrayListOf(AuthUI.IdpConfig.EmailBuilder().build(), AuthUI.IdpConfig.GoogleBuilder().build())
+
+            startActivityForResult(
+                AuthUI.getInstance()
+                    .createSignInIntentBuilder()
+                    .setIsSmartLockEnabled(false)
+                    .setAvailableProviders(providers)
+                    .build(), 1
+            )
         }
     }
 

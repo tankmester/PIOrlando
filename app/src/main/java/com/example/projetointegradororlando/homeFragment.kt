@@ -32,11 +32,6 @@ class homeFragment : Fragment() {
 
     }
 
-    override fun onResume() {
-        super.onResume()
-        setupFirebase()
-    }
-
 
     fun refreshUi(list: List<Produto>){
         binding.containerHome.removeAllViews()
@@ -46,7 +41,6 @@ class homeFragment : Fragment() {
 
             cardBinding.textTitulo.text = it.titulo
             cardBinding.textDesc.text = it.descricao
-
 
             binding.containerHome.addView(cardBinding.root)
 
@@ -62,16 +56,17 @@ class homeFragment : Fragment() {
         val usuario = getCurrentUser()
 
         if (usuario != null){
-            database = FirebaseDatabase.getInstance().reference.child(usuario.uid)
-
-            val valueEventListener = object : ValueEventListener{
+            database = FirebaseDatabase.getInstance().reference.child("TodosProdutos")
+            val valueEventListener = object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
 
                     val list = arrayListOf<Produto>()
 
-                    snapshot.child("produtos").children.forEach{
-                        val map = it.value as HashMap<*, *>
+                    snapshot.children.forEach{
+                        val map = it.value as HashMap<String, Any>
+
                         val id = it.key
+
                         val imagem = map["imagem"] as String
                         val titulo = map["titulo"] as String
                         val descricao = map["descricao"] as String

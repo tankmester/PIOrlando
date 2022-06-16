@@ -33,6 +33,7 @@ class adicionarProdutos : Fragment() {
                 parentFragmentManager.beginTransaction().replace(it.id, AdicionarNovosProdutos()).commit()
             }
         }
+
         return binding.root
 
     }
@@ -45,7 +46,6 @@ class adicionarProdutos : Fragment() {
 
             cardBinding.textTitulo.text = it.titulo
             cardBinding.textDesc.text = it.descricao
-
 
             binding.containerProduto.addView(cardBinding.root)
 
@@ -86,7 +86,7 @@ class adicionarProdutos : Fragment() {
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    Log.e("homeFragment", "setupFirebase", error.toException())
+                    Log.e("adicionarProdutos", "setupFirebase", error.toException())
                 }
             }
             database.addValueEventListener(valueEventListener)
