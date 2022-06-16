@@ -1,18 +1,16 @@
 package com.example.projetointegradororlando
 
 
-import android.content.Intent
+
 import android.os.Bundle
-import android.os.Message
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
-import androidx.core.app.ActivityCompat.finishAffinity
 import com.example.projetointegradororlando.databinding.FragmentPerfilBinding
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
+import kotlin.system.exitProcess
 
 
 class perfil : Fragment() {
@@ -33,6 +31,12 @@ class perfil : Fragment() {
             System.exit(0)
         }
 
+
+        binding.textEmailUsuario.text = FirebaseAuth.getInstance().currentUser?.email.toString()
+        binding.textNomeUsuario.text = FirebaseAuth.getInstance().currentUser?.displayName.toString()
+
+        binding.textEmailUsuario
+
         return binding.root
 
     }
@@ -51,7 +55,7 @@ class perfil : Fragment() {
     }
 
     private fun finishAffinity() {
-        System.exit(0)
+        exitProcess(0)
     }
 
 
