@@ -52,6 +52,7 @@ class AdicionarNovosProdutos : Fragment() {
         //newNodeGeral.setValue(produto)
     }
 
+    //aaa
     fun getCurrentUser(): FirebaseUser? {
         return FirebaseAuth.getInstance().currentUser
     }

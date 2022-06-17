@@ -37,7 +37,7 @@ class adicionarProdutos : Fragment() {
         return binding.root
 
     }
-
+    //aaa
     fun refreshUi(list: List<Produto>){
         binding.containerProduto.removeAllViews()
 
