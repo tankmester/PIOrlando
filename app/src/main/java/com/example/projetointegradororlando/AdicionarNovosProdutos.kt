@@ -43,16 +43,14 @@ class AdicionarNovosProdutos : Fragment() {
             titulo = binding.editTextTitulo.text.toString(),
             descricao = binding.editTextTextMultiLineDescricao.text.toString(),
             preco = binding.editTextNumberDecimalPreco.text.toString())
-        //val newNode = database.child("Produtos").push()
-        //val newNodeGeral = FirebaseDatabase.getInstance().reference.child("TodosProdutos").push()
-        //produto.id = newNode.key
-        val newNode = usuario?.let { database.child("usuarios").child(it.uid).child("produtos").push() }
-        newNode?.key.let { produto.id = it }
-        newNode?.setValue(produto)
-        //newNodeGeral.setValue(produto)
+
+        val newNode = usuario.let { database.child("produtos").push() }
+
+        newNode.key?.let { produto.id = it}
+
+        newNode.setValue(produto)
     }
 
-    //aaa
     fun getCurrentUser(): FirebaseUser? {
         return FirebaseAuth.getInstance().currentUser
     }
@@ -61,38 +59,8 @@ class AdicionarNovosProdutos : Fragment() {
         val usuario = getCurrentUser()
 
         if (usuario != null){
-            database = FirebaseDatabase.getInstance().reference//.child(usuario.uid)
-            val dataBaseListener = object : ValueEventListener{
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    dataProcessing(snapshot)
-                }
-
-                override fun onCancelled(error: DatabaseError) {
-                    TODO("Not yet implemented")
-                }
-            }
-            database.child("produtos").addValueEventListener(dataBaseListener)
+            database = FirebaseDatabase.getInstance().reference.child(usuario.uid)
         }
-       /* else{
-            val providers = arrayListOf(AuthUI.IdpConfig.EmailBuilder().build(), AuthUI.IdpConfig.GoogleBuilder().build())
 
-            startActivityForResult(
-                AuthUI.getInstance()
-                    .createSignInIntentBuilder()
-                    .setIsSmartLockEnabled(false)
-                    .setAvailableProviders(providers)
-                    .build(), 1
-            )
-        }*/
-    }
-    fun dataProcessing(snapshot: DataSnapshot) {
-        val produtos = arrayListOf<Produto>()
-
-        snapshot.children.forEach{
-            val produto = it.getValue(Produto::class.java)
-            produto?.let {
-                 produtos.add(produto)
-            }
-        }
     }
 }

@@ -43,6 +43,7 @@ class MainActivity : AppCompatActivity() {
             )
         }
         else {
+            setupFirebase()
         }
 
     }
@@ -66,7 +67,7 @@ class MainActivity : AppCompatActivity() {
         val usuario = getCurrentUser()
 
         if (usuario != null){
-            database = FirebaseDatabase.getInstance().reference//.child(usuario.uid)
+            database = FirebaseDatabase.getInstance().reference.child(usuario.uid)
         }
     }
 

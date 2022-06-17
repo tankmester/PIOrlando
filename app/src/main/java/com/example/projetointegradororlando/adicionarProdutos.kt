@@ -14,6 +14,7 @@ import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
+import com.squareup.picasso.Picasso
 
 
 class adicionarProdutos : Fragment() {
@@ -34,16 +35,17 @@ class adicionarProdutos : Fragment() {
             }
         }
         setupFirebase()
+
         return binding.root
 
     }
-    //aaa
     fun refreshUi(list: List<Produto>){
         binding.containerProduto.removeAllViews()
 
         list.forEach{
             val cardBinding = ProdutoBinding.inflate(layoutInflater)
 
+            Picasso.get().load(it.imagem).into(cardBinding.imageView)
             cardBinding.textTitulo.text = it.titulo
             cardBinding.textDesc.text = it.descricao
 
@@ -61,7 +63,7 @@ class adicionarProdutos : Fragment() {
         val usuario = getCurrentUser()
 
         if (usuario != null){
-            database = FirebaseDatabase.getInstance().reference//.child(usuario.uid)
+            database = FirebaseDatabase.getInstance().reference.child(usuario.uid)
 
             val dataBaseListener = object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
@@ -71,7 +73,7 @@ class adicionarProdutos : Fragment() {
                     Log.e("adicionarProdutos", "setupFirebase", error.toException())
                 }
             }
-            database.child("usuarios").child(usuario.uid).child("produtos").addValueEventListener(dataBaseListener)
+            database.child("produtos").addValueEventListener(dataBaseListener)
         }
     }
     fun dataProcessing(snapshot: DataSnapshot) {

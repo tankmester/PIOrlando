@@ -14,6 +14,7 @@ import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
+import com.squareup.picasso.Picasso
 
 
 class homeFragment : Fragment() {
@@ -39,6 +40,7 @@ class homeFragment : Fragment() {
         list.forEach{
             val cardBinding = ProdutoBinding.inflate(layoutInflater)
 
+            Picasso.get().load(it.imagem).into(cardBinding.imageView)
             cardBinding.textTitulo.text = it.titulo
             cardBinding.textDesc.text = it.descricao
 
@@ -48,47 +50,27 @@ class homeFragment : Fragment() {
 
     }
 
-    private fun getCurrentUser(): FirebaseUser? {
+    fun getCurrentUser(): FirebaseUser? {
         return FirebaseAuth.getInstance().currentUser
     }
-    fun setupFirebase(){
 
-    }
-/*
-    private fun setupFirebase(){
+    fun setupFirebase(){
         val usuario = getCurrentUser()
 
         if (usuario != null){
-            database = FirebaseDatabase.getInstance().reference.child("TodosProdutos")
-            val valueEventListener = object : ValueEventListener {
+            database = FirebaseDatabase.getInstance().reference
+
+            val dataBaseListener = object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-
-                    val list = arrayListOf<Produto>()
-
-                    snapshot.children.forEach{
-                        val map = it.value as HashMap<String, Any>
-
-                        val id = it.key
-
-                        val imagem = map["imagem"] as String
-                        val titulo = map["titulo"] as String
-                        val descricao = map["descricao"] as String
-                        val preco = map["preco"] as String
-
-                        val prod = Produto(id, titulo,descricao, preco, imagem)
-                        list.add(prod)
-                    }
-
-                    refreshUi(list)
+                    dataProcessing(snapshot)
                 }
-
                 override fun onCancelled(error: DatabaseError) {
-                    Log.e("homeFragment", "setupFirebase", error.toException())
+                    Log.e("adicionarProdutos", "setupFirebase", error.toException())
                 }
             }
-            database.addValueEventListener(valueEventListener)
+            database.addValueEventListener(dataBaseListener)
         }
-    }*/
+    }
     fun dataProcessing(snapshot: DataSnapshot) {
         val produtos = arrayListOf<Produto>()
 
