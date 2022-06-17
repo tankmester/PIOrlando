@@ -21,7 +21,10 @@ class DetalhesProduto : AppCompatActivity() {
         binding.textPreco.text = intent.getStringExtra("preco")
 
         binding.button.setOnClickListener {
+
+
             alert("Alugar produto","Você deseja realmente alugar este produto?")
+
         }
 
     }

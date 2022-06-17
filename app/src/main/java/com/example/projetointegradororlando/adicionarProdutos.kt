@@ -50,6 +50,7 @@ class adicionarProdutos : Fragment() {
             cardBinding.titulo.text = it.titulo
             cardBinding.descricao.text = it.descricao
             val preco = it.preco
+            val id = it.id
 
             binding.containerProduto.addView(cardBinding.root)
 
@@ -59,6 +60,7 @@ class adicionarProdutos : Fragment() {
                 i.putExtra("titulo", cardBinding.titulo.text.toString())
                 i.putExtra("descricao", cardBinding.descricao.text.toString())
                 i.putExtra("preco", preco)
+                i.putExtra("id", id)
                 startActivity(i)
 
             }
