@@ -1,5 +1,6 @@
 package com.example.projetointegradororlando
 
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -29,6 +30,9 @@ class homeFragment : Fragment() {
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater)
 
+        setupFirebase()
+
+
         return binding.root
 
     }
@@ -40,9 +44,11 @@ class homeFragment : Fragment() {
         list.forEach{
             val cardBinding = ProdutoBinding.inflate(layoutInflater)
 
+
             Picasso.get().load(it.imagem).into(cardBinding.imageView)
-            cardBinding.textTitulo.text = it.titulo
-            cardBinding.textDesc.text = it.descricao
+            cardBinding.titulo.text = it.titulo
+            cardBinding.descricao.text = it.descricao
+
 
             binding.containerHome.addView(cardBinding.root)
 
@@ -68,7 +74,7 @@ class homeFragment : Fragment() {
                     Log.e("adicionarProdutos", "setupFirebase", error.toException())
                 }
             }
-            database.addValueEventListener(dataBaseListener)
+            database.child("produtos").addValueEventListener(dataBaseListener)
         }
     }
     fun dataProcessing(snapshot: DataSnapshot) {
@@ -77,7 +83,7 @@ class homeFragment : Fragment() {
         snapshot.children.forEach{
             val produto = it.getValue(Produto::class.java)
             produto?.let {
-                produtos.add(produto)
+                produtos.add(it)
             }
         }
         refreshUi(produtos)

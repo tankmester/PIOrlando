@@ -34,6 +34,7 @@ class adicionarProdutos : Fragment() {
                 parentFragmentManager.beginTransaction().replace(it.id, AdicionarNovosProdutos()).commit()
             }
         }
+
         setupFirebase()
 
         return binding.root
@@ -46,10 +47,22 @@ class adicionarProdutos : Fragment() {
             val cardBinding = ProdutoBinding.inflate(layoutInflater)
 
             Picasso.get().load(it.imagem).into(cardBinding.imageView)
-            cardBinding.textTitulo.text = it.titulo
-            cardBinding.textDesc.text = it.descricao
+            cardBinding.titulo.text = it.titulo
+            cardBinding.descricao.text = it.descricao
+            val preco = it.preco
 
             binding.containerProduto.addView(cardBinding.root)
+
+            binding.containerProduto.setOnClickListener {
+                val i = Intent(context, DetalhesProduto::class.java)
+
+                i.putExtra("titulo", cardBinding.titulo.text.toString())
+                i.putExtra("descricao", cardBinding.descricao.text.toString())
+                i.putExtra("preco", preco)
+                startActivity(i)
+
+            }
+
 
         }
 
@@ -76,13 +89,14 @@ class adicionarProdutos : Fragment() {
             database.child("produtos").addValueEventListener(dataBaseListener)
         }
     }
+
     fun dataProcessing(snapshot: DataSnapshot) {
         val produtos = arrayListOf<Produto>()
 
         snapshot.children.forEach{
             val produto = it.getValue(Produto::class.java)
             produto?.let {
-                produtos.add(produto)
+                produtos.add(it)
             }
         }
         refreshUi(produtos)

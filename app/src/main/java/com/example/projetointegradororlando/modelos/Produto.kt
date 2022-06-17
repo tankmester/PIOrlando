@@ -7,5 +7,7 @@ data class Produto(
     val imagem: String = "",
     var titulo: String = "",
     var descricao: String = "",
-    var preco: String = ""
+    var preco: String = "",
+    var comprado: Boolean = false
+
 )
