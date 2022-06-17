@@ -41,7 +41,6 @@ class perfil : Fragment() {
         binding.textEmailUsuario.text = FirebaseAuth.getInstance().currentUser?.email.toString()
         binding.textNomeUsuario.text = FirebaseAuth.getInstance().currentUser?.displayName.toString()
 
-        binding.textEmailUsuario
 
         return binding.root
 

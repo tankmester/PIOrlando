@@ -64,7 +64,7 @@ class homeFragment : Fragment() {
         val usuario = getCurrentUser()
 
         if (usuario != null){
-            database = FirebaseDatabase.getInstance().reference
+            database = FirebaseDatabase.getInstance().reference.child(usuario.uid)
 
             val dataBaseListener = object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
