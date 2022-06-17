@@ -1,5 +1,6 @@
 package com.example.projetointegradororlando
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -15,6 +16,7 @@ import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
+import com.google.firebase.database.ktx.getValue
 import com.squareup.picasso.Picasso
 
 
@@ -48,9 +50,20 @@ class homeFragment : Fragment() {
             Picasso.get().load(it.imagem).into(cardBinding.imageView)
             cardBinding.titulo.text = it.titulo
             cardBinding.descricao.text = it.descricao
+            val preco = it.preco
 
 
             binding.containerHome.addView(cardBinding.root)
+
+            binding.containerHome.setOnClickListener {
+                val i = Intent(context, DetalhesProduto::class.java)
+
+                i.putExtra("titulo", cardBinding.titulo.text.toString())
+                i.putExtra("descricao", cardBinding.descricao.text.toString())
+                i.putExtra("preco", preco)
+                startActivity(i)
+
+            }
 
         }
 
@@ -64,7 +77,7 @@ class homeFragment : Fragment() {
         val usuario = getCurrentUser()
 
         if (usuario != null){
-            database = FirebaseDatabase.getInstance().reference
+            database = FirebaseDatabase.getInstance().reference.child(usuario.uid)
 
             val dataBaseListener = object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {

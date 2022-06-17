@@ -3,6 +3,7 @@ package com.example.projetointegradororlando
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.projetointegradororlando.databinding.ActivityDetalhesProdutoBinding
+import com.squareup.picasso.Picasso
 
 class DetalhesProduto : AppCompatActivity() {
     lateinit var binding: ActivityDetalhesProdutoBinding
