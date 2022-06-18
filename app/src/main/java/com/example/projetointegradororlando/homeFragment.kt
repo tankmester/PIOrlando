@@ -44,28 +44,36 @@ class homeFragment : Fragment() {
         binding.containerHome.removeAllViews()
 
         list.forEach{
-            val cardBinding = ProdutoBinding.inflate(layoutInflater)
+
+            if(it.comprado == true){
+
+            }else{
+                val cardBinding = ProdutoBinding.inflate(layoutInflater)
+
+                val img = it.imagem
+
+                Picasso.get().load(it.imagem).into(cardBinding.imageView)
+                cardBinding.titulo.text = it.titulo
+                cardBinding.descricao.text = it.descricao
+                val preco = it.preco
+                val id = it.id
 
 
-            Picasso.get().load(it.imagem).into(cardBinding.imageView)
-            cardBinding.titulo.text = it.titulo
-            cardBinding.descricao.text = it.descricao
-            val preco = it.preco
-            val id = it.id
+                binding.containerHome.addView(cardBinding.root)
 
+                cardBinding.root.setOnClickListener {
+                    val i = Intent(context, DetalhesProduto::class.java)
 
-            binding.containerHome.addView(cardBinding.root)
+                    i.putExtra("imagem", img)
+                    i.putExtra("titulo", cardBinding.titulo.text.toString())
+                    i.putExtra("descricao", cardBinding.descricao.text.toString())
+                    i.putExtra("preco", preco)
+                    i.putExtra("id", id)
+                    startActivity(i)
 
-            cardBinding.root.setOnClickListener {
-                val i = Intent(context, DetalhesProduto::class.java)
-
-                i.putExtra("titulo", cardBinding.titulo.text.toString())
-                i.putExtra("descricao", cardBinding.descricao.text.toString())
-                i.putExtra("preco", preco)
-                i.putExtra("id", id)
-                startActivity(i)
-
+                }
             }
+
 
         }
 

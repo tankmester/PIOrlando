@@ -33,6 +33,7 @@ class adicionarProdutos : Fragment() {
             container?.let{
                 parentFragmentManager.beginTransaction().replace(it.id, AdicionarNovosProdutos()).commit()
             }
+
         }
 
         setupFirebase()
@@ -40,29 +41,38 @@ class adicionarProdutos : Fragment() {
         return binding.root
 
     }
+
     fun refreshUi(list: List<Produto>){
         binding.containerProduto.removeAllViews()
 
         list.forEach{
-            val cardBinding = ProdutoBinding.inflate(layoutInflater)
+            if(it.comprado == true){
 
-            Picasso.get().load(it.imagem).into(cardBinding.imageView)
-            cardBinding.titulo.text = it.titulo
-            cardBinding.descricao.text = it.descricao
-            val preco = it.preco
-            val id = it.id
+            }else{
+                val cardBinding = ProdutoBinding.inflate(layoutInflater)
 
-            binding.containerProduto.addView(cardBinding.root)
+                val img = it.imagem
 
-            binding.containerProduto.setOnClickListener {
-                val i = Intent(context, DetalhesProduto::class.java)
+                Picasso.get().load(it.imagem).into(cardBinding.imageView)
+                cardBinding.titulo.text = it.titulo
+                cardBinding.descricao.text = it.descricao
+                val preco = it.preco
+                val id = it.id
 
-                i.putExtra("titulo", cardBinding.titulo.text.toString())
-                i.putExtra("descricao", cardBinding.descricao.text.toString())
-                i.putExtra("preco", preco)
-                i.putExtra("id", id)
-                startActivity(i)
 
+                binding.containerProduto.addView(cardBinding.root)
+
+                cardBinding.root.setOnClickListener {
+                    val i = Intent(context, DetalhesProduto::class.java)
+
+                    i.putExtra("imagem", img)
+                    i.putExtra("titulo", cardBinding.titulo.text.toString())
+                    i.putExtra("descricao", cardBinding.descricao.text.toString())
+                    i.putExtra("preco", preco)
+                    i.putExtra("id", id)
+                    startActivity(i)
+
+                }
             }
 
 
